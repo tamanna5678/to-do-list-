@@ -1,0 +1,376 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Base Styles */
+body {
+    display: flex;
+    transition: background 0.5s ease, color 0.5s ease;
+    background: radial-gradient(circle at top left, #FAF0E6, #FAF0E6);
+    color: #4B0082; /* Dark purple for better readability */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    flex-direction: column; /* To stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Recycle Bin Button */
+.recycle-bin-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recycle-bin-button:hover {
+    background-color: #0056b3;
+}
+
+/* Edit and Delete Button Styles */
+.edit-btn, .delete-btn, .restore-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px; /* Font size for buttons */
+    color: #4B0082; /* Button text color */
+    margin-left: 10px; /* Space between buttons */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 20px;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.toggle-sidebar {
+    position: absolute;
+    top: 15px;
+    right: -40px;
+    background: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    background: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #3700b3;
+}
+
+/* App Container Styles */
+.app-container {
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1), -10px -10px 30px rgba(255, 255, 255, 0.5);
+    margin: 50px auto;
+    margin-left: 300px; /* Space for sidebar */
+    transition: margin-left 0.3s;
+}
+
+.app-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #444;
+}
+
+.task-container {
+    padding: 20px;
+}
+
+.task-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1), inset -4px -4px 10px rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.3s;
+}
+
+#task-input:focus {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+}
+
+.add-task-btn {
+    padding: 12px;
+    background: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+    width: 40px;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-task-btn:hover {
+    background-color: #3700b3;
+    transform: scale(1.05);
+}
+
+.add-task-btn:active {
+    transform: scale(0.95);
+}
+
+.task-filters {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05), -2px -2px 5px rgba(255, 255, 255, 0.8);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+    color: white;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05), -2px -2px 5px rgba(255, 255, 255, 0.8);
+    transition: transform 0.2s;
+}
+
+.task-item:hover {
+    transform: scale(1.01);
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg);
+}
+
+#theme-toggle {
+    font-size: 20px;
+    color: inherit; /* Make sure it’s visible in both dark and light modes */
+    cursor: pointer;
+}
+
+body.dark-mode #theme-toggle {
+    color: #fff; /* Ensure the icon is visible in dark mode */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: radial-gradient(circle at bottom right, #232526, #414345); /* Dark mode gradient */
+    color: #f5f5f5;
+}
+
+.app-container.dark-mode {
+    background: black;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3), -8px -8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.task-item.dark-mode {
+    background-color: black;
+    color: black;
+    border: 1px solid #444; /* Optional: Border for better visibility */
+}
+
+.filter-btn.dark-mode, 
+.add-task-btn.dark-mode,
+.edit-btn.dark-mode,
+.delete-btn.dark-mode,
+.restore-btn.dark-mode,
+.permanently-delete-btn.dark-mode {
+    background-color: #444;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(255, 255, 255, 0.1);
+    border: none; /* Optional: No border for buttons */
+    padding: 8px 12px; /* Optional: Padding for better button appearance */
+    border-radius: 4px; /* Optional: Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.filter-btn.dark-mode:hover,
+.add-task-btn.dark-mode:hover,
+.edit-btn.dark-mode:hover,
+.delete-btn.dark-mode:hover,
+.restore-btn.dark-mode:hover,
+.permanently-delete-btn.dark-mode:hover {
+    background-color: #666; /* Darker shade on hover */
+}
+
+.task-text.dark-mode {
+    color: black; /* Ensure task text is visible */
+}
+
+#recycle-bin {
+    background-color: #222; /* Dark background for recycle bin */
+    border: 1px solid #444; /* Optional: Border for recycle bin */
+}
+
+#recycle-bin .task-text {
+    color: #f5f5f5; /* Ensure task text in recycle bin is visible */
+}
+
+/* Optional: Input fields in dark mode */
+input[type="text"].dark-mode,
+input[type="date"].dark-mode,
+input[type="time"].dark-mode {
+    background-color: #333;
+    color: black;
+    border: 1px solid #444;
+}
+
+input[type="text"].dark-mode::placeholder,
+input[type="date"].dark-mode::placeholder,
+input[type="time"].dark-mode::placeholder {
+    color: black; /* Placeholder text color */
+}
+
+/* Mic Button Styling */
+#mic-button {
+    border: none;
+    background-color: transparent; /* Make background transparent */
+    padding: 1px;
+    cursor: pointer; /* Make it look like a button */
+}
+
+#mic-button img {
+    width: 30px; /* Adjust the size of the image */
+    height: 40px; /* Adjust the size of the image */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .app-container {
+        margin-left: 0; /* Adjust margin for smaller screens */
+    }
+}
+
+.task-container input[type="datetime-local"] {
+    margin-left: 10px;
+}
+
+
+#badge-display {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #444; /* Dark gray for contrast */
+    background-color: #f4f4f8; /* Light lavender background */
+    width: 200px;
+}
+
+.badge {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #ffffff; /* White background for badges */
+    text-align: center;
+    color: #4b0082; /* Indigo for text color */
+}
+
+.badge-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #800080; /* Purple background for notifications */
+    color: #ffffff; /* White text color */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    animation: fadeInOut 4s;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.badge-notification {
+    animation: pop 0.3s ease-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
