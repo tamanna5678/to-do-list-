@@ -1,7 +1,3 @@
-/*
-.blue-background {
-    background-color: lightblue;
-}*/
 .navbar{
 
     display: inline-flex;
@@ -10,14 +6,15 @@
 
     height: 100px;
 
-    background:#800080;
-
+ /*   background:linear-gradient(135deg,#FFE4E1,#D2B48C,#FFB6C1,#FFE4E1,#FFB6C1 );
+    */
+     background:#DDA0DD;
 }
 .navbar .title h1{
 
-    color:FF0097A7;
+    color:black;
 
-    font-size: 28px;
+    font-size: 10x;
 
     margin: 20px;
      
@@ -25,7 +22,7 @@
 
 }
 .text{
-text-shadow: #4b0082 0 -2px
+text-shadow: #010101 0 -2px
 }
 
 .navbar .logo {
@@ -51,24 +48,12 @@ text-shadow: #4b0082 0 -2px
 
 }
 
- .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh; 
-        }
-        .left {
-            text-align: left;
-        }
-        .center {
-            text-align: center;
-            flex-grow: 3;
-        }
+
 
 p {
   text-align: center;
   text-transform: lowercase;
-  color: white;
+  color: black;
   font-size: 30px;
   text:cursive;
 }
@@ -90,17 +75,174 @@ h2 {
             text-decoration: none;
             border-radius: 5px;
             cursor: pointer;
-
+             justify-content: flex-end;
             }
 
         .button:hover {
-            background-color: darkblue;
+            background-color: #dda0dd;
         }
-
-
-
-
-
-
-
 }
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between each place */
+    
+}
+
+.place {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Space between image and description */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh; 
+        }
+        .left {
+            text-align: left;
+        }
+        .center {
+            text-align: right;
+            flex-grow: 3;
+        }
+}
+
+/*.place.reverse {
+    flex-direction: row-reverse; /* Reverse the order of items */
+}
+*/
+.place-image {
+    width: 50px; /* Fixed width for images */
+    height: 10vh;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow to lift the image slightly */
+}
+
+.description {
+    max-width: 60%;
+}
+
+.description h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.description p {
+    margin-top: 8px;
+    color: #555;
+    line-height: 1.6;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 10px; /* Space between columns */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    height: 50vh; /* Full height of the viewport */
+}
+
+.column {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for content */
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size:32px;
+     background:linear-gradient(135deg,#E6E6FA, #D8BFD8, #DDA0DD,#e79fc4,#c8a2c8 );
+  
+}
+
+
+.row.no-partition {
+    display: inline-block;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 0; /* No space between columns */
+    position: relative; /* Allows positioning of child elements */
+    height: 300px; /* Set a fixed height or adjust to your needs */
+    width:1340px;
+}
+
+
+.column.no-border {
+    background: none; 
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+    padding: 20px;
+}
+.image-container {
+    position: relative;
+    display: inline-block; /* Align the container to center */
+}
+
+.centered-image {
+    display: block;
+    width: 1340px; /* Responsive image width */
+    height: 500px;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%; /* Position in the vertical center */
+    left: 50%; /* Position in the horizontal center */
+    transform: translate(-50%, -50%); /* Center the text */
+    color: black; /* Text color */
+    font-size: 32px; /* Adjust font size */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
+   
+}
+.text {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* 1fr for left and right columns, auto for text */
+    gap: 20px; /* Space between columns */
+    align-items: center; /* Center items vertically */
+    max-width: 1200px; /* Optional: Set max width for container */
+    width: 100%;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between images */
+}
+
+.left-column img,
+.right-column img {
+    width: 400px; /* Adjust as needed */
+    height: 400px; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounded corners for images */
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text horizontally */
+    text-align: center; /* Center text */
+    max-width: 400px; /* Limit width of the text block */
+}
+
+.text-column h1,
+.text-column p {
+    color: #333; /* Text color */
+    font-family: Arial, sans-serif; /* Font style */
+    line-height: 1.5; /* Line spacing */
+    margin-bottom: 10px; /* Space between heading and paragraph */
+}
+    
