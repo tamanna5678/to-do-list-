@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do List</title>
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="MY.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+   
+    <!-- Flatpickr CSS for the calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button id="toggle-sidebar" class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-link active">All Tasks</a>
+            <a href="#" class="nav-link">Active Tasks</a>
+            <a href="#" class="nav-link">Completed Tasks</a>
+            <a href="#" class="nav-link">Settings</a>
+            <input type="date" id="calendar-input" />
+
+        </nav>
+        <h2>Recycle Bin</h2>
+<ul id="recycle-bin"></ul>
+
+ <div id="badge-display">
+    <h3>Your Badges</h3>
+    <div id="badges"></div>
+</div>
+
+ <button onclick="completeTask()">Complete Task</button>
+      
+           </div> <!-- Close sidebar -->
+    
+    <!-- Main App Container -->
+    <div id="app" class="app-container">
+        <!-- Header Section -->
+        <div class="app-header">
+            <h1>My To-Do List</h1>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+        </div>
+        
+        <div class="task-container">
+            <form id="task-form" class="task-input">
+                <input type="text" id="task-input" placeholder="Enter your task here..." required>
+                <input type="datetime-local" id="reminder-input" title="Set reminder">
+                 
+    <button type="button" id="mic-button" title="Use voice input">
+        <i class="fas fa-microphone"></i>
+    </button>
+    
+    <button type="submit" id="add-task-btn" class="add-task-btn" title="Add Task">
+        <i class="fas fa-plus"></i>
+    </button>
+                    <i class="fas fa-plus"></i>
+                </button>
+            </form>
+
+            <div class="task-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Active</button>
+                <button class="filter-btn">Completed</button>
+            </div>
+        </div> <!-- Close task-container -->
+
+        <!-- Task List -->
+        <ul id="task-list" class="task-list"></ul>
+    </div> <!-- Close app-container -->
+   
+
+
+
+ 
+
+
+    <script>
+        
+        // Handle task submission
+        document.getElementById('task-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const taskInput = document.getElementById('task-input');
+            const taskValue = taskInput.value.trim();
+           const calendarInput = document.getElementById('calendar-input');
+
+            if (taskValue) {
+                // Add task to the task list
+                const taskList = document.getElementById('task-list');
+                const listItem = document.createElement('li');
+                listItem.textContent = taskValue;
+                taskList.appendChild(listItem);
+                taskInput.value = ''; // Clear the input after adding the task
+            }
+        });
+        
+        // Prevent closing the calendar when clicking on it
+     window.addEventListener('DOMContentLoaded', function() {
+    const calendarInput = document.getElementById('calendar-input');
+
+    // Initialize flatpickr for the calendar input
+    flatpickr(calendarInput, {
+        onClose: function() {
+            this.close(); // Proper reference to the Flatpickr instance
+        }
+    });
+});
+
+    </script>
+
+    <!-- Link to JavaScript File (if there's additional JS needed) -->
+<script src="1.js"></script> 
+</body>
+</html>
