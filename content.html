@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #444;
+  }
+
+  .navbar {
+    background-color: #333; /* Dark background for navbar */
+    padding: 14px 20px;
+    overflow: hidden;
+  }
+
+  .navbar a {
+    float: right;
+    color: #ffffff; /* White text color */
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #575757; /* Slightly lighter dark background on hover */
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Spacing between buttons */
+    max-width: 800px; /* Control width of grid */
+    margin: auto;
+    padding: 20px; /* Padding around the grid */
+  }
+
+  .button {
+    border-radius: 20px;
+    background-color: #e3f2fd; /* Light blue background for buttons */
+    color: #0277bd; /* Darker blue text color */
+    border: 2px solid #81d4fa; /* Light blue border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%; /* Full width of grid cell */
+    height: 120px; /* Fixed height */
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .button h2, .button p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.2;
+  }
+
+  .button h2 {
+    font-size: 1.2em; /* Adjust size for headings */
+  }
+
+  .button p {
+    font-size: 0.9em; /* Adjust size for paragraphs */
+  }
+
+  .button:hover {
+    background-color: #81d4fa; /* Slightly darker blue on hover */
+    border-color: #4fc3f7; /* Slightly darker border on hover */
+  }
+</style>
+</head>
+<body background="https://img.freepik.com/premium-photo/gradient_643930-344.jpg">
+
+<main>
+  <div class="navbar">
+    <a href="firstpage.html">Home</a>
+    <a href="firstpage.html">About</a>
+    <a href="#services">Contact</a>
+    <a href="firstpage.html">Logout</a>
+  </div>
+    
+  <h1>What is the title of your list?</h1>
+
+  <div class="container">
+    <a href="list.html" class="button">
+      <div>
+        <h2>School/University</h2>
+        <p>Complete assignments</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Grocery</h2>
+        <p>Buy weekly supplies</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Music</h2>
+        <p>Favourite songs</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Books</h2>
+        <p>To be read</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Food</h2>
+        <p>Meal planning</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Reminders</h2>
+        <p>Daily tasks</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Shopping</h2>
+        <p>Buy clothes</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Trips</h2>
+        <p>Plan vacations</p>
+      </div>
+    </a>
+
+    <a href="list.html" class="button">
+      <div>
+        <h2>Everyday Task</h2>
+        <p>Daily routine</p>
+      </div>
+    </a>
+  </div>
+</main>
+
+</body>
+</html>
